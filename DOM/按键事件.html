@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>按键事件 和 小车移动</title>
+    <style>
+        .car {
+            height: 50px;
+            width: 50px;
+            border: 2px solid red;
+            position: fixed;
+        }
+    </style>
+</head>
+<body>
+<p>This page turns violet when you hold the V key.</p>
+<div class="car" style="top: 0;left: 0">car</div>
+<script>
+  //按V换色
+  window.addEventListener("keydown", event => {
+    //event.key值带引号
+    if (event.key === "v") {
+      document.body.style.background = "violet";
+    }
+  });
+  window.addEventListener("keyup", event => {
+    if (event.key === "v") {
+      document.body.style.background = "";
+    }
+
+    //控制小车移动
+    let car = document.querySelector('.car')
+    window.addEventListener('keydown', () => {
+      switch (event.key) {
+        case 'ArrowUp':
+          car.style.top = parseInt(car.style.top) - 1 + 'px'
+          break
+        case 'ArrowDown':
+          car.style.top = parseInt(car.style.top) + 1 + 'px'
+          break
+        case 'ArroLeft':
+          car.style.left = parseInt(car.style.left) - 1 + 'px'
+          break
+        case 'ArrowRight':
+          car.style.left = parseInt(car.style.left) + 1 + 'px'
+          break
+      }
+
+    })
+    window.addEventListener('keyup', () => {
+
+    })
+
+  });
+</script>
+</body>
+</html>

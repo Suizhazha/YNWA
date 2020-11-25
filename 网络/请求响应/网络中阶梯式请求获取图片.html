@@ -1,0 +1,40 @@
+<button id="btn">Show Cats!</button>
+<script>
+  // https://xieranmaya.github.io/images/cats/cats.json
+  // https://xieranmaya.github.io/images/cats/photo-103450229.jpg
+
+  const button = document.getElementById('btn')
+
+  //在Network中让图片阶梯式加载
+  button.addEventListener('click', e => {
+    let xhr = new XMLHttpRequest()
+    xhr.open('GET', 'https://xieranmaya.github.io/images/cats/cats.json')
+    xhr.send()
+
+    xhr.onload = function () {
+      let cats = JSON.parse(xhr.responseText)
+      let i = 0
+
+      func()
+
+      function func() {
+        getImg('https://xieranmaya.github.io/images/cats/' + cats[i++].url,img=>{
+          document.body.appendChild(img)
+          if (i<cats.length)
+          {func()}
+        })
+      }
+
+
+    }
+  })
+
+  function getImg(url,cb) {
+    let img =document.createElement('img')
+    img.onload = function () {
+      cb(img)
+    }
+    img.src = url
+  }
+
+</script>

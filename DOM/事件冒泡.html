@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<div>
+    <form action="">
+        <div>
+            <span>姓名</span><label>
+            <input class="foo" type="text">
+        </label>
+            <span>性别</span><label>
+            <input class="bar" type="text">
+        </label>
+        </div>
+    </form>
+</div>
+
+<script>
+    let form = document.querySelector('form')
+    form.addEventListener('click',function (e) {
+      if (e.target.className === 'foo'){
+        console.log('clicked',e.target.textContent)
+      }
+      //tagName或nodeName值大写
+      if (e.target.tagName === 'INPUT'){
+        console.log('输入框被点了',e.target.textContent)
+      }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM画线</title>
+    <style>
+        .dot{
+            position: absolute;
+            background-color: red;
+            height: 10px;
+            width: 10px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+
+<script>
+let draw=false
+document.addEventListener('mousedown',()=>{
+  draw=true
+  document.addEventListener('mousemove',(e)=> {
+    if (draw === true) {
+      let div = document.createElement('div')
+      div.className = 'dot'
+      div.style.left = e.clientX - 5 + 'px'
+      div.style.top = e.clientY - 5 + 'px'
+      document.body.append(div)
+    }
+  })
+})
+document.addEventListener('mouseup',(e)=>{
+  draw=false
+})
+
+
+</script>
+</body>
+</html>

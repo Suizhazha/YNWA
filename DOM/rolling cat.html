@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>rolling cat</title>
+</head>
+<body>
+<p style="text-align: center;margin-top: 150px">
+    <img alt="mao" src="" style="border: 1px solid red ;position: relative">
+</p>
+<script>
+  let cat = document.querySelector('img')
+  let angle, lastTime
+  [angle, lastTime] = [0, null]
+
+  function animate(time) {
+    //使用时间计数，用户离开再返回页面继续运行
+    if (lastTime != null) {
+      angle += (time - lastTime) * 0.001
+    }
+    lastTime = time
+cat.style.top=Math.sin(angle)*20+ 'px'
+cat.style.left=Math.cos(angle)*200+ 'px'
+  requestAnimationFrame(animate)//
+  }
+  requestAnimationFrame(animate)
+
+</script>
+
+</body>
+</html>

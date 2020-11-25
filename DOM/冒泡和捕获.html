@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>冒泡和捕获</title>
+</head>
+<body>
+<div>
+    <button>111</button>
+</div>                             
+<script>
+    let button = document.querySelector('button')
+    let div = document.querySelector('div')
+
+    //事件捕获从外向内，目标事件按照代码顺序，事件冒泡从内向外
+    button.addEven tListener('click',()=>{
+      console.log('button事件冒泡')
+    })
+    button.addEventListener('click',()=>{
+      console.log('button事件捕获')
+    },true)//
+    div.addEventListener('click',()=>{
+      console.log('div事件冒泡')
+    })
+    div.addEventListener('click',()=>{
+      console.log('div事件捕获')
+    },true)
+   document.body.addEventListener('click',()=>{
+      console.log('body事件捕获')
+    })
+   document.body.addEventListener('click',()=>{
+      console.log('body事件捕获')
+    },true)
+
+</script>
+</body>
+</html>

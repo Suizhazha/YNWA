@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<p>
+    <img src="img/cat.jpg" alt="Cat">
+    <img src="img/hat.jpg" alt="Hat">
+    <button onclick="replaceImages()">替换成文本</button>
+</p>
+
+<script>
+//因为 getElementsByTagName 之 类的方法返回的节点列表是动态变化的。该列表会随着文档改变还改变。若我们从列表头开 始遍历，移除掉第一个图像会导致列表丢失其第一个元素，第二次循环时，因为集合的长度 此时为 1，而 i 也为 1，所以循环会停止。
+  function replaceImages() {
+  let images = document.body.getElementsByTagName("img");
+  for (let i = images.length - 1; i >= 0; i--) {
+    let image = images[i];
+    if (image.alt) {
+      let text = document.createTextNode(image.alt);
+      image.parentNode.replaceChild(text, image);
+    }
+  }
+}
+</script>
+
+<!--<script>-->
+<!--  function replaceImages() {-->
+<!--    debugger-->
+<!--    let images = document.getElementsByTagName('img')-->
+<!--    for (let i = 0; i < images.length; i++) {-->
+<!--      let img = images[i]-->
+<!--      if (img.alt) {-->
+<!--        let text = document.createTextNode(img.alt)-->
+<!--        img.parentNode.replaceChild(text, img)-->
+<!--      }-->
+<!--    }-->
+<!--  }-->
+<!--</script>-->
+</body>
+</html>

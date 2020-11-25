@@ -1,0 +1,17 @@
+function foo(){
+  a = 5;
+  console.log(window.a);//undefined
+  console.log(a);//5
+  var a = 10;
+  console.log(a);//10
+}
+foo();
+
+// function foo(){
+//   var  a
+//   a = 5;
+//   console.log(window.a);//undefind
+//   console.log(a);//5
+//    a = 10;
+//   console.log(a);//10
+// }

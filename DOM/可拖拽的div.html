@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>可拖拽的div</title>
+  <style>
+    div{
+      border:1px solid red;
+      height: 100px;
+      width: 100px;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    *{
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+
+</head>
+<body>
+<div id="xxx"></div>
+
+<script>
+
+  let dragging = false
+  let position =null
+
+  xxx.addEventListener('mousedown',e=>{
+    dragging = true
+    position = [e.clientX,e.clientY]
+  })
+
+  //xxx应该为document
+  xxx.addEventListener('mousemove',e=>{
+    if (dragging){
+    const x=e.clientX
+    const y=e.clientY
+    const deltax = x - position[0]
+    const deltay = y - position[1]
+
+    const left = parseInt(xxx.style.left || 0 )
+    const top = parseInt(xxx.style.top || 0 )
+
+      xxx.style.left = left+deltax+'px'
+      xxx.style.top =top+deltay+'px'
+    position = [x,y]
+    }
+  })
+
+  //xxx应该为document
+  xxx.addEventListener('mouseup',e=>{
+    dragging = false
+  })
+
+</script>
+</body>
+</html>

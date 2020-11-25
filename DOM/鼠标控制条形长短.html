@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .bar {
+            height: 30px;
+            width: 20px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+<p>
+    按住鼠标可拖动其宽度
+</p>
+<div class="bar">
+</div>
+
+<script>
+  let lastWidth
+  let div = document.querySelector('div')
+
+  div.addEventListener('mousedown', (event) => {
+    console.log(event);
+    if (event.buttons === 1) {
+      lastWidth = event.clientX
+      console.log(lastWidth);
+      document.addEventListener('mousemove', moved)
+      event.preventDefault()
+    }
+  })
+
+  function moved(event) {
+      console.log(lastWidth)
+      let dist = event.clientX - lastWidth
+      let newWidth = Math.max(10, div.offsetWidth + dist)
+      console.log(1)
+      div.style.width = newWidth + 'px'
+      lastWidth = event.clientX
+    if (event.buttons === 0) {
+      document.removeEventListener("mousemove", moved);
+    }
+    }
+
+</script>
+</body>
+</html>

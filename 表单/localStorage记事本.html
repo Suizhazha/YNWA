@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>记事本</title>
+</head>
+<body>
+<div style="display: flex;border:1px solid red">
+    <div style="width: 200px;">
+        <button style="width: 80%">添加</button>
+        <select style="width: 80%" name='' size="10" id="select">
+            <option value="">暂无笔记，请添加</option>
+        </select>
+    </div>
+    <div style="flex-grow: 1 ">
+        <input type="text" style="width: 80%;">
+        <textarea name="" id="" cols="30" rows="10" style="width: 80%;"></textarea>
+    </div>
+</div>
+
+<script>
+
+  let list = document.querySelector('#select')
+  function addToList(name) {
+    let option = document.createElement('option')
+    option.textContent = name
+    list.appendChild(option)
+  }
+
+//第二版书本，script没写完
+
+
+</script>
+
+
+</body>
+</html>

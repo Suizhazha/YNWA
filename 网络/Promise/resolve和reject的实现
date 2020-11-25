@@ -1,0 +1,18 @@
+Promise.resolve = function (value) {
+return new Promise(resolve => {
+  resolve(value)
+})
+}
+
+//reject为第二个值，需要占位
+
+Promise.reject = function (value) {
+return new Promise(_,reject => {
+  reject(value)
+})
+}
+
+
+Promise.resolve(promise)//返回的promise按照传传入的 promise的状态
+
+promise.reject(promise)//返回的promise一定是失败状态

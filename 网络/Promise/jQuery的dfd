@@ -1,0 +1,23 @@
+function deferred() {
+  var dfd = {}
+  dfd.promise = new Promise((resolve, reject) => {
+    dfd.resolve = resolve
+    dfd.reject = reject
+  })
+  return dfd
+}
+
+
+function get(url) {
+  var dfd = $.deferred()
+
+  var xhr = new XMLHttpRequest()
+  xhr.open('get', url)
+  xhr.onload = function () {
+    dfd.resolve(xhr.responseText)
+  }
+  xhr.onerror = function () {
+    dfd.reject(new Error('net work error'))
+    return dfd.promise
+  }
+}

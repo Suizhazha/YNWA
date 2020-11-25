@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<ul id="test">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+</ul>
+
+<script>
+    let ul = document.querySelector('#test')
+    let lis = ul.querySelectorAll('li')
+
+    for (let i = 0; i <lis.length; i++) {
+      let li = lis[i]
+      li.addEventListener('click',()=>{
+        console.log(i)
+      })
+    }
+// lis.forEach((li,i)=>{
+//   li.addEventListener('click',()=>{
+//     console.log(i)
+//   })
+// })
+
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>焦点事件</title>
+</head>
+<body>
+<p> Name:
+    <label>
+        <input type="text" data-help="Your full name">
+    </label>
+</p>
+<p>Age:
+    <label>
+        <input type="text" data-help="Your age in years">
+    </label>
+</p>
+<p id="help">
+</p>
+
+<script>
+  let help = document.querySelector("#help");
+  let fields = document.querySelectorAll("input");
+  for (let field of Array.from(fields)) {
+    field.addEventListener("focus", () => {
+      help.textContent = field.getAttribute("data-help");
+    });
+    field.addEventListener("blur", () => {
+      help.textContent = "";
+    });
+  }
+
+  //focusin和focusout
+
+  // let help =document.querySelector('#help')
+  // document.addEventListener('focusin',(e)=>{
+  //   help.textContent = e.target.dataset.help
+  // })
+  // document.addEventListener('focusout',()=>{
+  //   help.textContent = ''
+  // })
+  </script>
+</body>
+</html>
